@@ -1,0 +1,22 @@
+name: "HUE Action"
+description: "Change the HUE lights color based on the CI build state"
+inputs:
+  hueClientId:
+    description: "The HUE Client ID"
+    required: true
+  hueClientSecret:
+    description: "The HUE Client Secret"
+    required: true
+  hueAuthCode:
+    required: true
+    description: "The HUE Authorization code"
+  hueLightId:
+    description: "The HUE light ID"
+    required: false
+    default: "1"
+outputs:
+  lightStatus:
+    description: "The light status"
+runs:
+  using: "node12"
+  main: "index.js"

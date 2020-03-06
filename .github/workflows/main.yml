@@ -1,0 +1,28 @@
+name: Hue Action
+on: [push]
+
+jobs:
+  hueAction:
+    runs-on: ubuntu-latest
+    name: This will turn the light to green or red
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Use Node.js 12.13.0
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.13.0
+      - run: npm install
+      - run: npm test
+
+      # test our action
+      - name: Run Hue Action
+        uses: ./
+        id: hue
+        with:
+          hueClientId: ${{ secrets.hueClientId }}
+          hueClientSecret: ${{ secrets.hueClientSecret }}
+          hueAuthCode: ${{ secrets.hueAuthCode }}
+          hueLightId: "5"
+      - name: Get the light status
+        run: echo "${{ steps.hue.outputs.lightStatus }}"
