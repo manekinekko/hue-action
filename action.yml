@@ -1,4 +1,5 @@
 name: "Hue Action"
+author: "Wassim Chegham"
 description: "Trigger your Philips Hue lights from your Github builds"
 inputs:
   hueWebhook:
@@ -13,3 +14,6 @@ outputs:
 runs:
   using: "node12"
   main: "index.js"
+branding:
+  icon: "sun"
+  color: "yellow"
