@@ -1,6 +1,6 @@
 # HUE Action
 
-Trigger your Philips HUE lights from your Github builds.
+Trigger your Philips Hue lights from your Github builds workflows, based on the build status.
 
 ## Inputs
 
@@ -28,7 +28,7 @@ The light updated status: True if the light has been triggered.
 3. Add this Action to your workflow:
 
 ```yml
-uses: manekinekko/hue-action@v1
+uses: manekinekko/hue-action@v1.0
 with:
   hueWebhook: ${{ secrets.HUEACTION_WEBHOOK }}
   hueLightId: "5"
