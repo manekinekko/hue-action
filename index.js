@@ -14,24 +14,28 @@ require("dotenv").config();
       lightId
     });
 
-    const res = await (
-      await fetch(hueWebhook, {
-        method: "POST",
-        body: JSON.stringify({
-          lightId,
-          status: "success"
-        })
-      })
-    ).json();
-
-    console.log(res);
-
-    core.sucess();
-
-    // Get the JSON webhook payload for the event that triggered the workflow
-    const payload = JSON.stringify(github.context.payload, undefined, 2);
+    const payload = github.context.jobs;
     console.log(`The event payload: ${payload}`);
+
+    const res = await postHueAction({
+      hueWebhook,
+      lightId,
+      status: "success"
+    });
+    core.setOutput("lightStatus", JSON.stringify(res));
   } catch (error) {
     core.setFailed(error.message);
   }
 })();
+
+async function postHueAction({ hueWebhook, lightId, status }) {
+  return await (
+    await fetch(hueWebhook, {
+      method: "POST",
+      body: JSON.stringify({
+        lightId,
+        status
+      })
+    })
+  ).json();
+}
