@@ -1,11 +1,11 @@
-name: "HUE Action"
-description: "Change the HUE lights color based on the CI build state"
+name: "Hue Action"
+description: "Trigger your Philips Hue lights from your Github builds"
 inputs:
   hueWebhook:
-    description: "The HUE Action webhook (from hueaction.dev)"
+    description: "The Hue Action webhook created from hueaction.dev"
     required: true
   hueLightId:
-    description: "The HUE light ID"
+    description: "The Hue light ID"
     required: false
     default: "1"
 outputs:

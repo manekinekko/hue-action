@@ -1,7 +1,7 @@
 {
   "name": "hue-action",
   "version": "1.0.0",
-  "description": "",
+  "description": "Trigger your Philips HUE lights from your Github builds",
   "main": "index.js",
   "scripts": {
     "test": "echo 'skipping tests'"
@@ -12,6 +12,6 @@
     "@actions/core": "^1.2.3",
     "@actions/github": "^2.1.1",
     "dotenv": "^8.2.0",
-    "node-hue-api": "^4.0.5"
+    "node-fetch": "^2.6.0"
   }
 }
