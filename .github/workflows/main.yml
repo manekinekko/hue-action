@@ -17,12 +17,26 @@ jobs:
 
       # test our action
 
-      - name: Run Hue Action
+      - name: Run Hue Action On Success
         uses: ./
-        id: hue
+        id: hueSuccess
+        if: success()
         with:
           hueWebhook: ${{ secrets.HUEACTION_WEBHOOK }}
           hueLightId: "5"
+          hueStatus: "success"
 
       - name: Get the light status
-        run: echo "${{ steps.hue.outputs.lightStatus }}"
+        run: echo "${{ steps.hueSuccess.outputs.lightStatus }}"
+
+      - name: Run Hue Action On Failure
+        uses: ./
+        id: hueFailure
+        if: failure()
+        with:
+          hueWebhook: ${{ secrets.HUEACTION_WEBHOOK }}
+          hueLightId: "5"
+          hueStatus: "failure"
+
+      - name: Get the light status
+        run: echo "${{ steps.hueFailure.outputs.lightStatus }}"

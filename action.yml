@@ -8,6 +8,9 @@ inputs:
   hueLightId:
     description: "The Hue light ID to trigger"
     required: true
+  hueStatus:
+    description: "The Hue light status: success | failure"
+    required: true
 outputs:
   lightStatus:
     description: "The light updated status: True if the light has been triggered."

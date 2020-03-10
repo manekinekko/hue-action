@@ -8,19 +8,18 @@ require("dotenv").config();
   try {
     const hueWebhook = core.getInput("hueWebhook");
     const lightId = core.getInput("hueLightId");
+    const hueStatus = core.getInput("hueStatus");
 
     console.log({
       hueWebhook,
-      lightId
+      lightId,
+      hueStatus
     });
-
-    const payload = github.context.jobs;
-    console.log(`The event payload: ${payload}`);
 
     const res = await postHueAction({
       hueWebhook,
       lightId,
-      status: "success"
+      status: hueStatus
     });
     core.setOutput("lightStatus", JSON.stringify(res));
   } catch (error) {
