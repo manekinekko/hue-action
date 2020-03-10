@@ -5,12 +5,11 @@ inputs:
     description: "The Hue Action webhook created from hueaction.dev"
     required: true
   hueLightId:
-    description: "The Hue light ID"
-    required: false
-    default: "1"
+    description: "The Hue light ID to trigger"
+    required: true
 outputs:
   lightStatus:
-    description: "The light status"
+    description: "The light updated status: True if the light has been triggered."
 runs:
   using: "node12"
   main: "index.js"
