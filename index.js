@@ -1,36 +1,30 @@
 const core = require("@actions/core");
 const github = require("@actions/github");
-const { hue } = require("./hue");
+const fetch = require("node-fetch");
 
 require("dotenv").config();
 
 (async function() {
   try {
-    const clientId = core.getInput("hueClientId");
-    const clientSecret = core.getInput("hueClientSecret");
+    const hueWebhook = core.getInput("hueWebhook");
     const lightId = core.getInput("hueLightId");
-    const authCode = core.getInput("hueAuthCode");
 
     console.log({
-      clientId,
-      clientSecret,
-      lightId,
-      authCode
+      hueWebhook,
+      lightId
     });
 
-    const api = hue({
-      clientId,
-      clientSecret,
-      lightId,
-      authCode
-    });
+    const res = await (
+      await fetch(hueWebhook, {
+        method: "POST",
+        body: JSON.stringify({
+          lightId,
+          status: "success"
+        })
+      })
+    ).json();
 
-    if (api) {
-      const lightStatus = await api.sucess();
-      core.setOutput("lightStatus", lightStatus);
-    } else {
-      console.error(api);
-    }
+    console.log(res);
 
     core.sucess();
 

@@ -16,13 +16,13 @@ jobs:
       - run: npm test
 
       # test our action
+
       - name: Run Hue Action
         uses: ./
         id: hue
         with:
-          hueClientId: ${{ secrets.hueClientId }}
-          hueClientSecret: ${{ secrets.hueClientSecret }}
-          hueAuthCode: ${{ secrets.hueAuthCode }}
+          hueWebhook: ${{ secrets.HUEACTION_WEBHOOK }}
           hueLightId: "5"
+
       - name: Get the light status
         run: echo "${{ steps.hue.outputs.lightStatus }}"
