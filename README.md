@@ -29,7 +29,9 @@ The light updated status: True if the light has been triggered.
 
 ```yml
 uses: manekinekko/hue-action@v1.0
+if: success()
 with:
   hueWebhook: ${{ secrets.HUEACTION_WEBHOOK }}
   hueLightId: "5"
+  hueStatus: "success"
 ```
