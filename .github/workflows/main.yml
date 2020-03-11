@@ -13,5 +13,5 @@ jobs:
         with:
           node-version: 12.13.0
       - run: npm install
-      - run: npm test
+        
 
