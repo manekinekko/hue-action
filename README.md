@@ -1,3 +1,5 @@
+![Hue Action](https://github.com/manekinekko/hue-action/workflows/Hue%20Action/badge.svg)
+
 # HUE Action
 
 Trigger your Philips Hue lights from your Github builds workflows, based on the build status.
