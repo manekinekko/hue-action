@@ -2,7 +2,7 @@
 
 # Hue Action
 
-Trigger your Philips Hue lights from your Github builds workflows, based on the build status.
+Trigger your Philips Hue lights from your Github workflows.
 
 ## Inputs
 
