@@ -16,7 +16,7 @@ outputs:
     description: "The light updated status: True if the light has been triggered."
 runs:
   using: "node12"
-  main: "index.js"
+  main: "./dist/index.js"
 branding:
   icon: "sun"
   color: "yellow"

@@ -2,9 +2,9 @@
   "name": "hue-action",
   "version": "1.0.0",
   "description": "Trigger your Philips HUE lights from your Github builds",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
-    "test": "echo 'skipping tests'"
+    "build": "ncc build index.js"
   },
   "author": "Wassim Chegham <github@wassim.dev>",
   "license": "MIT",
