@@ -17,6 +17,7 @@ jobs:
       - name: Run Hue Action
         uses: manekinekko/hue-action@v1.0
         if: success()
+        id: hue
         with:
           hueWebhook: ${{ secrets.HUEACTION_WEBHOOK }}
           hueLightId: "5"
