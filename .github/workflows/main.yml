@@ -13,3 +13,11 @@ jobs:
         with:
           node-version: 12.13.0
       - run: npm install
+
+      - name: Run Hue Action
+        uses: manekinekko/hue-action@v1.0
+        if: success()
+        with:
+          hueWebhook: ${{ secrets.HUEACTION_WEBHOOK }}
+          hueLightId: "5"
+          hueStatus: "success"
