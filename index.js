@@ -10,12 +10,6 @@ require("dotenv").config();
     const lightId = core.getInput("hueLightId");
     const hueStatus = core.getInput("hueStatus");
 
-    console.log({
-      hueWebhook,
-      lightId,
-      hueStatus
-    });
-
     const res = await postHueAction({
       hueWebhook,
       lightId,
